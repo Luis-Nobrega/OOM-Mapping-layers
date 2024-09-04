@@ -158,11 +158,11 @@ RGB
 ![image](/images/RGB.jpeg)
 Terrestrial Chlorophyll Index
 ![image](/images/OTCI.jpeg)
-Integrated Water Vapour
+Integrated Water Vapour (IWV) - [source](https://earth.esa.int/eogateway/documents/20142/37627/cawa-algorithm-theoretical-basis-water-vapor.pdf) 
 ![image](/images/IWV.jpeg)
-Algal pigment concentration (open waters)
-![image](/images/CHL.jpeg)
-Aerosol Angstrom exponent
+Algal pigment concentration (open waters) - [source](http://www.jeeng.net/pdf-152428-77647?filename=The%20Interaction%20of.pdf)
+![image](/images/CHL.jpeg) 
+Aerosol Angstrom exponent - [source](https://instesre.org/Aerosols/angstrom.htm)
 ![image](/images/AAE.jpeg)
 Total suspended matter (TSM)
 ![image](/images/TSM.jpeg)
