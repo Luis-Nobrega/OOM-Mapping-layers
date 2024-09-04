@@ -1,4 +1,4 @@
-# Automatic image generation for leyers of sentinel satellites 2 and 3 
+# Automatic image generation for layers of sentinel satellites 2 and 3 
 Provides meteorological maps based on Sentinel 2 and 3 satellite imagery 
 
 ## Motivation
@@ -11,7 +11,7 @@ Adding new layers for [OOM website](https://oom.arditi.pt/index.php), especially
 - [Copernicus Browser](https://browser.dataspace.copernicus.eu)
 
 ## Features
-Allows to get satellite images from Sentinel2 and Sentinel3. Processes irradiance bands to create images according to [Copernicus Browser](https://browser.dataspace.copernicus.eu) or referenced *academic papers*, when layers are L2 instead of L1.
+It allows satellite images to be retrieved from Sentinel 2 and Sentinel 3. Processes irradiance bands to create images according to [Copernicus Browser](https://browser.dataspace.copernicus.eu) or referenced *academic papers*, when layers are L2 instead of L1.
 
 ## Needed packages 
 Prior to running some packages have to be installed:
@@ -34,28 +34,28 @@ config.sh_base_url = 'https://sh.dataspace.copernicus.eu'
 config.sh_token_url = 'https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token'
 config.save("cdse")
 ```
-And run the one of the scripts normally.
+And run one of the scripts normally.
 
 ### Repeated runnings
 
-For the remaining times, the above lines can be commented back, as reconfiguring sentinelhub several times may slow down the image generating.
+The above lines can be commented on for the remaining times, as reconfiguring the sentinel hub several times may slow down the image generation.
 
-If for some reason, another setup is done, or the access tokens do not work, run it as if it was the first time.
+If for some reason, another setup is done, or the access tokens do not work, run it as if it were the first time.
 
 ### Token validity
 
-By default, *copernicus.eu* tokens tend to last 3 months. Asking for a permanent token is possible, but always a risk. Please consider using a token with a validy of 1-2 years instead.
+By default, *Copernicus.eu* tokens tend to last 3 months. Asking for a permanent token is possible, but always a risk. Please consider using a token with a validy of 1-2 years instead.
 
 ## Changing dates 
-By default, the program will try to find the most recent layer based on the sentinel requests and ID's provided. This sometimes may wrongfully give you a date that is 1-2 days delayed.
+By default, the program will try to find the most recent layer based on the sentinel requests and IDs provided. This sometimes may wrongfully give you a date that is 1-2 days delayed.
 
-To manually choose dates, change the `request_sentinel(element, image_names[cnt],1,"2024-09-01", "2024-09-03")` to have the apropriate date and to have a `0` as an input paramether.
+To manually choose dates, change the `request_sentinel(element, image_names[cnt],1, "2024-09-01", "2024-09-03")` to have the appropriate date and to have a `0` as an input parameter.
 
-To be 100% sure that the date corresponds to current day, don't alter `request_sentinel(...)` and instead comment the line that says `current_date = date_chooser()`.
+To be 100% sure that the date corresponds to the current day, don't alter `request_sentinel(...)` and instead comment on the line that says `current_date = date_chooser()`.
 
 ## Altering the files
 ### Adding more layers
-The script is maleable and prone to the adittion of more imaging layers. Just add a new variable, for example:
+The script is malleable and prone to the addition of more imaging layers. Just add a new variable, for example:
 ```
 evalscript_sentinel3_olci_Tristimulus = """
 //VERSION=3
@@ -111,31 +111,31 @@ DataCollection.SENTINEL3_SLSTR
 
 Other necessary changes are below:
 
-### Adding a new satellite / layer
+### Adding a new satellite/layer
 
 To add a new satellite or layer, a new file can either be created and the  `request_sentinel(...)` function altered or a new function can be added to an existing file:
 ```
 data_collection=DataCollection.SENTINEL3_SLSTR.define_from
 ```
-After that and adding the layer that stores the **JSON**, `vals` `image_names` and `units` variables must be altered to contain new layers, and remove the bad layers. 
+After that and adding the layer that stores the **JSON**, `vals` `image_names` and `units` variables must be altered to contain new layers and remove the bad layers. 
 
-There is also a `excluded` variable that stores special layers that either don't need cloud or land maskings, or are used to generate those masks. It is not recommended to alter that. 
+There is also an `excluded` variable that stores special layers that either don't need cloud or land maskings or are used to generate those masks. It is not recommended to alter that. 
 
-For example, to use a cloud mask, with a image that requires **SLSTR** it is recommended to add a new `request_sentinel()` function, as the cloud mask comes from the **RGB** layer in **OLCI**.
+For example, to use a cloud mask, with an image that requires **SLSTR** it is recommended to add a new `request_sentinel()` function, as the cloud mask comes from the **RGB** layer in **OLCI**.
 
 For new layers without masks, it is recommended to base new files on [copernicusS2.py](/copernicusS2.py), as it treats raw images.
 
 ## Box and resolution 
-To change area of interest, alter these coordinates. It should ideally be a [box](http://bboxfinder.com/). 
+To change the area of interest, alter these coordinates. It should ideally be a [box](http://bboxfinder.com/). 
 ```
 aoi_coords_wgs84 = [-17.567139,32.296420,-16.040039,33.312168] 
 resolution = 60 
 ```
-If there is a problem with resulution, something as:
+If there is a problem with resolution, something as:
 ```
-Max allowed value for image is 2894
+Max allowed value for an image is 2894
 ```
-Increase the resolution value. It isn't really the image resolution in meters, just a paramether to adjust the **JPEG** file. The true resolutions can be found in [ESA](https://sentiwiki.copernicus.eu/web/sentiwiki).
+Increase the resolution value. It isn't really the image resolution in meters, just a parameter to adjust the **JPEG** file. The true resolutions can be found in [ESA](https://sentiwiki.copernicus.eu/web/sentiwiki).
 
 ## Cloud mask regards
 The cloud mask was built based on RBG images, as the sum of the values in the pixels tends to be higher in clouds. As of now it is set to **180**, but some thinner clouds might escape. 
@@ -143,8 +143,8 @@ The cloud mask was built based on RBG images, as the sum of the values in the pi
 To be more precise, reduce the value by (maybe to 160-170) but be careful as this might also start blocking land areas.
 
 ## Land mask and labels
-These are done separately and require fine-tunning.
-Given the data format (RGB) and not intensity, the label had to be added as a separate **JPEG** in "jet" colorscale. For more info, email one of the contributers at OOM/ARDITI.
+These are done separately and require fine-tuning.
+Given the data format (RGB) and not intensity, the label had to be added as a separate **JPEG** in the "jet" colour scale. For more info, email one of the contributors at OOM/ARDITI.
 
 ## Sentinel 2 images
 True Colour image
