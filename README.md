@@ -1,4 +1,4 @@
-# OOM-Mapping-layers
+# Automatic image generation for leyers of sentinel satellites 2 and 3 
 Provides meteorological maps based on Sentinel 2 and 3 satellite imagery 
 
 ## Motivation
@@ -78,7 +78,7 @@ This code comes in **JSON** format and can be easily edited with **AI** tools or
 
 Watchout for the provided band. Ex: While all **OLCI** bands are supported, sentinel3 **SLSTR** would require modifications to [copernicusS3_updated.py](/copernicusS3_updated.py).
 
-Right now (04/09/2024) they are:
+Right [now](https://sentinelhub-py.readthedocs.io/en/latest/examples/process_request.html) (04/09/2024) they are:
 ```
 DataCollection.SENTINEL2_L1C
 DataCollection.SENTINEL2_L2A
@@ -125,6 +125,26 @@ For example, to use a cloud mask, with a image that requires **SLSTR** it is rec
 
 For new layers without masks, it is recommended to base new files on [copernicusS2.py](/copernicusS2.py), as it treats raw images.
 
+## Box and resolution 
+To change area of interest, alter these coordinates. It should ideally be a [box](http://bboxfinder.com/). 
+```
+aoi_coords_wgs84 = [-17.567139,32.296420,-16.040039,33.312168] 
+resolution = 60 
+```
+If there is a problem with resulution, something as:
+```
+Max allowed value for image is 2894
+```
+Increase the resolution value. It isn't really the image resolution in meters, just a paramether to adjust the **JPEG** file. The true resolutions can be found in [ESA](https://sentiwiki.copernicus.eu/web/sentiwiki).
+
+## Cloud mask regards
+The cloud mask was built based on RBG images, as the sum of the values in the pixels tends to be higher in clouds. As of now it is set to **180**, but some thinner clouds might escape. 
+
+To be more precise, reduce the value by (maybe to 160-170) but be careful as this might also start blocking land areas.
+
+## Land mask and labels
+These are done separately and require fine-tunning.
+Given the data format (RGB) and not intensity, the label had to be added as a separate **JPEG** in "jet" colorscale. For more info, email one of the contributers at OOM/ARDITI.
 
 ## Sentinel 2 images
 True Colour image
@@ -152,3 +172,8 @@ Total suspended matter (TSM)
 Made by:
 - Luís Fernando Nóbrega 
 - Jesus Reis 
+
+A big thanks to:
+- Rui Vieira for the land mask
+- Ricardo Faria 
+- Observatório Oceânico da Madeira
