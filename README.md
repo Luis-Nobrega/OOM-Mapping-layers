@@ -176,4 +176,3 @@ Made by:
 A big thanks to:
 - Rui Vieira for the land mask
 - Ricardo Faria 
-- Observatório Oceânico da Madeira
