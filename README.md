@@ -2,15 +2,20 @@
 Provides meteorological maps based on Sentinel 2 and 3 satellite imagery 
 
 ## Motivation
-
+Adding new layers for [OOM website](https://oom.arditi.pt/index.php), especially the [satellite imagery section](https://oom.arditi.pt/index.php?page=satellite).
+![image](https://oom.arditi.pt/assets/OOM_Logo.png)
 ## Tech/framework used
+<b>Built with</b>
+- [Pyhton](https://www.python.org/)
+- [Sentinel hub](https://www.sentinel-hub.com/)
+- [Copernicus Browser](https://browser.dataspace.copernicus.eu)
 
 ## Features
+Allows to get satellite images from Sentinel2 and Sentinel3. Processes irradiance bands to create images according to [Copernicus Browser](https://browser.dataspace.copernicus.eu) or referenced academic papers, when layers are L2 instead of L1.
 
 ## Needed packages 
 
 ## Running 
-
 ### For the first time 
 
 ### Other times
@@ -21,21 +26,21 @@ Provides meteorological maps based on Sentinel 2 and 3 satellite imagery
 
 ## Sentinel 2 images
 True Colour image
-![image](/TRUE_COL2.jpeg)
+![image](/images/TRUE_COL2.jpeg)
 Short wave infrared (SWIR)
-![image](/SWIR2.jpeg)
+![image](/images/SWIR2.jpeg)
 Normalized Difference Water Index (NDWI)
-![image](/NDWI2.jpeg)
+![image](/images/NDWI2.jpeg)
 RGB 
 ## Sentinel 3 images 
-![image](/RGB.jpeg)
+![image](/images/RGB.jpeg)
 Terrestrial Chlorophyll Index
-![image](/OTCI.jpeg)
+![image](/images/OTCI.jpeg)
 Integrated Water Vapour
-![image](/IWV.jpeg)
+![image](/images/IWV.jpeg)
 Algal pigment concentration (open waters)
-![image](/CHL.jpeg)
+![image](/images/CHL.jpeg)
 Aerosol Angstrom exponent
-![image](/AAE.jpeg)
+![image](/images/AAE.jpeg)
 Total suspended matter (TSM)
-![image](/TSM.jpeg)
+![image](/images/TSM.jpeg)
