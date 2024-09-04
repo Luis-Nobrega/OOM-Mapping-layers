@@ -51,7 +51,7 @@ By default, the program will try to find the most recent layer based on the sent
 
 To manually choose dates, change the `request_sentinel(element, image_names[cnt],1, "2024-09-01", "2024-09-03")` to have the appropriate date and to have a `0` as an input parameter.
 
-To be 100% sure that the date corresponds to the current day, don't alter `request_sentinel(...)` and instead comment on the line that says `current_date = date_chooser()`.
+To be 100% sure that the date corresponds to the current day, don't alter `request_sentinel(...)` and instead comment on the line that says `current_date = date_chooser()`. This action may, however, return you a image with passages from two different days.
 
 ## Altering the files
 ### Adding more layers
