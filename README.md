@@ -16,11 +16,19 @@ Allows to get satellite images from Sentinel2 and Sentinel3. Processes irradianc
 ## Needed packages 
 
 ## Running 
+
+Change `client_id` and `client_secret` to your personal tokens provided by [copernicus.eu](https://browser.dataspace.copernicus.eu). For information about getting this tokens: [secret_tokes](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Overview/Authentication.html); [FAQ's](https://documentation.dataspace.copernicus.eu/FAQ.html).
+
 ### For the first time 
 
 ### Other times
 
 ## Changing dates 
+By default, the program will try to find the most recent layer based on the sentinel requests and ID's provided. This sometimes may wrongfully give you a date that is 1-2 days delayd. 
+
+To manually choose dates, change the `request_sentinel(element, image_names[cnt],1,"2024-09-01", "2024-09-03")` to have the apropriate date and to have a `0`.
+
+To be 100% sure that the date corresponds to current day, don't alter `request_sentinel(...)` and instead comment the line that says `current_date = date_chooser()`.
 
 ## Adding more layers
 
