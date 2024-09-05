@@ -173,6 +173,6 @@ Made by:
 - Luís Fernando Nóbrega 
 - Jesus Reis 
 
-A big thanks to:
+Thank you to:
 - Rui Vieira for the land mask
 - Ricardo Faria 
