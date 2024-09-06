@@ -65,8 +65,8 @@ from datetime import timedelta, datetime
 ############################################### 
 
 
-client_id = "sh-3b0bf63f-19dc-4f95-a542-0570e457d16f" # both expire at 01 January 2026, 23:59 (UTC) 
-client_secret = "2b8dVHvsbbvXKmjh4ZHMOR39dSMrKK08" # enter account and make a new request 
+client_id = "your_client_id_from_copernicus.eu" # both expire at 01 January 2026, 23:59 (UTC) 
+client_secret = "your_secret_id_from_copernicus.eu" # enter account and make a new request
 
 ##### IF used for first time, uncomment this part #####
 
