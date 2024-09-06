@@ -1,10 +1,6 @@
-''' TO DO LIST
--> Get time at which sentinel 3 passes by madeira and set time period after that and local time 
--> Take data out of sentinel 3
--> Download image on click as high res format and then sabe as png
--> Layers to use -> CHL, SST (sea surface temperature), TSM (total suspended matter) -> processing level 2 data 
--> Use a cloud mascara to not blunder the images 
-'''
+############################################### 
+# Get dependencies
+###############################################
 
 import subprocess
 import sys
@@ -69,8 +65,8 @@ from datetime import timedelta, datetime
 ############################################### 
 
 
-client_id = "your_client_id_from_copernicus.eu" # both expire at 01 January 2026, 23:59 (UTC) 
-client_secret = "your_secret_id_from_copernicus.eu" # enter account and make a new request 
+client_id = "sh-3b0bf63f-19dc-4f95-a542-0570e457d16f" # both expire at 01 January 2026, 23:59 (UTC) 
+client_secret = "2b8dVHvsbbvXKmjh4ZHMOR39dSMrKK08" # enter account and make a new request 
 
 ##### IF used for first time, uncomment this part #####
 
@@ -250,19 +246,18 @@ mode = "mostRecent" # can be "mostRecent" or "leastCC"
 def date_chooser():
     time_interval = date.today() - timedelta(days = 10), date.today()
     search_iterator = catalog.search(
-        DataCollection.SENTINEL3_OLCI, # DataCollection.SENTINEL3_OLCI, use this for other data 
+        DataCollection.SENTINEL2_L2A, # DataCollection.SENTINEL3_OLCI, use this for other data 
         bbox=aoi_bbox,
         time=time_interval,
         fields={"include": ["id", "properties.datetime"], "exclude": []},
     )
 
     results = list(search_iterator)
-    tile_to_find = "_NT_"
-    tile_to_find2 = "_116_"
+    tile_to_find = "_R023_"
     desired_date = None
 
     for result in results:
-        if tile_to_find in result['id'] and tile_to_find2 in result['id']:
+        if tile_to_find in result['id']:
             desired_date = result['properties']['datetime'][:10]  # Extract the date part in format YYYY-MM-DD
             break  # Stop once we find the date
 
@@ -317,6 +312,21 @@ def request_sentinel(data, image_name, change_date=1, start_date="2022-05-01", e
     final_data = treated_data.get_data()
     save_image_as_jpeg(final_data[0], image_name)
 
+# To see what satellite passages are available 
+
+def available_data():
+  time_interval = date.today() - timedelta(days = 6), date.today()
+  search_iterator = catalog.search(
+      DataCollection.SENTINEL2_L2A, # DataCollection.SENTINEL3_OLCI, use this for other data 
+      bbox=aoi_bbox,
+      time=time_interval,
+      fields={"include": ["id", "properties.datetime"], "exclude": []},
+  )
+
+  results = list(search_iterator)
+  for element in results:
+      print(element)
+
 ############################################### 
 # Setup and testing area
 ############################################### 
@@ -330,4 +340,5 @@ for element in vals:
     #request_sentinel(element, image_names[cnt],0,  start_date="2024-08-28", end_date="2024-08-30") # manually choose date 
     cnt+=1
 
+available_data() # to search available slots for debugging 
 print(f"Used date: {date_chooser()[1]}")
