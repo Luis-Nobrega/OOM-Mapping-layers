@@ -16,7 +16,7 @@ It allows satellite images to be retrieved from Sentinel 2 and Sentinel 3. Proce
 ## Needed packages 
 Prior to running some packages have to be installed:
 ```
-matplotlib pandas getpass sentinelhub oauthlib requests_oauthlib datetime PIL numpy 
+pip install matplotlib pandas getpass sentinelhub oauthlib requests_oauthlib datetime PIL numpy 
 ```
 
 ## Running 
