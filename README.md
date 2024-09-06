@@ -144,7 +144,9 @@ To be more precise, reduce the value (maybe to 160-170) but be careful as this m
 
 ## Land mask and labels
 These are done separately and require fine-tuning.
-Given the data format (RGB) and not intensity, the label had to be added as a separate **JPEG** in the "jet" colour scale. For more info, email one of the contributors at OOM/ARDITI.
+Given the data format (RGB) and not intensity, the label had to be added as a separate **JPEG** in the "jet" colour scale. If your land filter takes too long or seems corrupted, adding [pre made colourbar](/images/colorbar_only.jpeg)prior to running, may speed up of fix the problem.
+
+For more info, email one of the contributors at OOM/ARDITI.
 
 ## Sentinel 2 images
 True Colour image
