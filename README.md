@@ -54,6 +54,11 @@ As it occupies the console, it is recommended to run it in the background, on a 
 ```
 python3 runner.py &
 ```
+Its status can be tracked with:
+
+```
+jobs
+```
 
 ## Changing dates 
 By default, the program will try to find the most recent layer based on the sentinel requests and IDs provided. This sometimes may wrongfully give you a date that is 1-2 days delayed.
