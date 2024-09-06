@@ -21,7 +21,7 @@ pip install matplotlib pandas getpass sentinelhub oauthlib requests_oauthlib dat
 
 ## Running 
 
-Change `client_id` and `client_secret` to your personal tokens provided by [copernicus.eu](https://browser.dataspace.copernicus.eu). For information about getting this tokens: [secret_tokes](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Overview/Authentication.html); [FAQ's](https://documentation.dataspace.copernicus.eu/FAQ.html).
+Change `client_id` and `client_secret` to your personal tokens provided by [copernicus.eu](https://browser.dataspace.copernicus.eu). For information about getting these tokens: [secret_tokes](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Overview/Authentication.html); [FAQ's](https://documentation.dataspace.copernicus.eu/FAQ.html).
 
 ### Running For the first time 
 After installing Sentinelhub, it is necessary to configure it for the first time before running. For that, all it takes is to **uncomment**:
@@ -47,9 +47,9 @@ If for some reason, another setup is done, or the access tokens do not work, run
 By default, *Copernicus.eu* tokens tend to last 3 months. Asking for a permanent token is possible, but always a risk. Please consider using a token with a validy of 1-2 years instead.
 
 ## Periodic running 
-If you desire to run both (or more) files at once automatically, [runner.py](/runner.py) has `single_run()`, `permanent_run()` and `run_at_hour()` ready. Whilw the first one only runs it once, the second one runs it based on a time interval (ex:12h) and the third one runs it at the same hour, every day.
+If you desire to run both (or more) files at once automatically, [runner.py](/runner.py) has `single_run()`, `permanent_run()` and `run_at_hour()` ready. While the first one only runs it once, the second one runs it based on a time interval (ex:12h) and the third one runs it at the same hour, every day.
 
-As it occupies the console, it is recommended to run it in background, on a server that is always running:
+As it occupies the console, it is recommended to run it in the background, on a server that is always running:
 
 ```
 python3 runner.py &
@@ -60,7 +60,7 @@ By default, the program will try to find the most recent layer based on the sent
 
 To manually choose dates, change the `request_sentinel(element, image_names[cnt],1, "2024-09-01", "2024-09-03")` to have the appropriate date and to have a `0` as an input parameter.
 
-If automatic dates are being used, to be 100% sure that the date corresponds to the current day, don't alter `request_sentinel(...)` and instead comment on the line that says `current_date = date_chooser()`. This action may, however, return you a image with passages from two different days.
+If automatic dates are being used, to be 100% sure that the date corresponds to the current day, don't alter `request_sentinel(...)` and instead comment on the line that says `current_date = date_chooser()`. This action may, however, return you an image with passages from two different days.
 
 ## Altering the files
 ### Adding more layers
