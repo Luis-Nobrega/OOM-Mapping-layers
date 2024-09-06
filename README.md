@@ -60,7 +60,7 @@ Its status can be tracked with:
 jobs
 # to kill it use ps to get PID (ex: 4132)
 ps
-kill 'PID'
+kill 4132
 ```
 
 ## Changing dates 
