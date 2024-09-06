@@ -13,6 +13,8 @@ Adding new layers for [OOM website](https://oom.arditi.pt/index.php), especially
 ## Features
 It allows satellite images to be retrieved from Sentinel 2 and Sentinel 3. Processes irradiance bands to create images according to [Copernicus Browser](https://browser.dataspace.copernicus.eu) or referenced *academic papers*, when layers are L2 instead of L1.
 
+**IMPORTANT:** The **date_chooser()** function in `copernicusS3_updated.py` *ocasionally* produces small image cuts to the west. This can be fixed by analysing the **available_data()** id's and having more selection parameters in **date_chooser()**, other than the presence of "_NT_" in the id.
+
 ## Needed packages 
 Prior to running some packages have to be installed:
 ```
