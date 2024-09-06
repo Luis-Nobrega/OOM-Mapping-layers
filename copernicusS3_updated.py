@@ -31,8 +31,8 @@ import re
 # First time setup and sentinel request
 ###############################################
 
-client_id = "your_client_id_from_copernicus.eu" # both expire at 01 January 2026, 23:59 (UTC) 
-client_secret = "your_secret_id_from_copernicus.eu" # enter account and make a new request 
+client_id = "sh-3b0bf63f-19dc-4f95-a542-0570e457d16f" # both expire at 01 January 2026, 23:59 (UTC) 
+client_secret = "2b8dVHvsbbvXKmjh4ZHMOR39dSMrKK08" # enter account and make a new request 
 
 # IF first time running, uncomment this part
 
@@ -562,6 +562,20 @@ def date_chooser():
     else:
         raise ValueError("No adequate data found in chosen period")
     
+def available_data():
+    time_interval = date.today() - timedelta(days = 3), date.today()
+    search_iterator = catalog.search(
+        DataCollection.SENTINEL3_OLCI, # DataCollection.SENTINEL3_OLCI, use this for other data 
+        bbox=aoi_bbox,
+        time=time_interval,
+        fields={"include": ["id", "properties.datetime"], "exclude": []},
+    )
+
+    results = list(search_iterator)
+    for element in results:
+       print(element)
+   
+    
 ############################################### 
 # Image output and operating area 
 ###############################################
@@ -581,4 +595,5 @@ def daily_images(update = True, cloud_filter= True, map = True): # **
      land_mask()
      legends()
      
+available_data() # for seeing available slots and debugging 
 daily_images(True,True,True) # **
