@@ -117,7 +117,7 @@ To add a new satellite or layer, a new file can either be created and the  `requ
 ```
 data_collection=DataCollection.SENTINEL3_SLSTR.define_from
 ```
-After that and adding the layer that stores the **JSON**, `vals` `image_names` and `units` variables must be altered to contain new layers and remove the bad layers. 
+After that and adding the layer that stores the **JSON**, `vals` `image_names` and `units` variables must be altered to contain new layers and remove the unnecessary layers. 
 
 There is also an `excluded` variable that stores special layers that either don't need cloud or land maskings or are used to generate those masks. It is not recommended to alter that. 
 
@@ -140,7 +140,7 @@ Increase the resolution value. It isn't really the image resolution in meters, j
 ## Cloud mask regards
 The cloud mask was built based on RBG images, as the sum of the values in the pixels tends to be higher in clouds. As of now it is set to **180**, but some thinner clouds might escape. 
 
-To be more precise, reduce the value by (maybe to 160-170) but be careful as this might also start blocking land areas.
+To be more precise, reduce the value (maybe to 160-170) but be careful as this might also start blocking land areas.
 
 ## Land mask and labels
 These are done separately and require fine-tuning.
