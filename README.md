@@ -153,8 +153,8 @@ Short wave infrared (SWIR)
 ![image](/images/SWIR2.jpeg)
 Normalized Difference Water Index (NDWI)
 ![image](/images/NDWI2.jpeg)
-RGB 
 ## Sentinel 3 images 
+RGB 
 ![image](/images/RGB.jpeg)
 Terrestrial Chlorophyll Index
 ![image](/images/OTCI.jpeg)
