@@ -46,6 +46,15 @@ If for some reason, another setup is done, or the access tokens do not work, run
 
 By default, *Copernicus.eu* tokens tend to last 3 months. Asking for a permanent token is possible, but always a risk. Please consider using a token with a validy of 1-2 years instead.
 
+## Periodic running 
+If you desire to run both (or more) files at once automatically, [runner.py](/runner.py) has `single_run()`, `permanent_run()` and `run_at_hour()` ready. Whilw the first one only runs it once, the second one runs it based on a time interval (ex:12h) and the third one runs it at the same hour, every day.
+
+As it occupies the console, it is recommended to run it in background, on a server that is always running:
+
+```
+python3 runner.py &
+```
+
 ## Changing dates 
 By default, the program will try to find the most recent layer based on the sentinel requests and IDs provided. This sometimes may wrongfully give you a date that is 1-2 days delayed.
 
